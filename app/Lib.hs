@@ -57,7 +57,7 @@ next (Env (width, height)) (State (posX, posY) (dirX, dirY)) =
 -- Draw
 drawState :: Env -> State -> String
 drawState env@(Env (_, height)) state =
-  unlines $ reverse $ map (\row -> drawRow env state row) [-1..height+1]
+  unlines $ reverse $ map (drawRow env state) [-1..height+1]
 
 drawRow :: Env -> State -> Int -> String
 drawRow env@(Env (width, _)) state row = map (\col -> charAt env state (col, row)) [-1..width+1]
